@@ -7,12 +7,12 @@ class Book < ApplicationRecord
     accepts_nested_attributes_for :genres
     accepts_nested_attributes_for :quotes
 
-    #def genres_attributes=(genre_attributes)
-    #    genre_attributes.values.each do | genre_attribute |
-    #        if genre_attribute["name"].present?
-    #            genre = genre.find_or_create_by(genre_attribute)
-    #            self.categories << genre
-    #        end
-    #    end
-    #end
+    def genres_attributes=(genre_attributes)
+        genre_attributes.values.each do | genre_attribute |
+            if genre_attribute["name"].present?
+                genre = Genre.find_or_create_by(genre_attribute)
+                self.genres << genre
+            end
+        end
+    end
 end

@@ -26,16 +26,13 @@ class QuotesController < ApplicationController
   end
 
   def update
-    if @quote
-      @quote.update(quote_params)
-        if @quote.errors.any?
-          render "edit"
-        else
-          redirect_to book_quote_path
-        end
-    else
-      render "edit"
-    end
+    @quote = @book.quotes.build(quote_params)
+    @quote.update(quote_params)
+      if @quote.errors.any?
+        render "edit"
+      else
+        redirect_to @book
+      end
   end
 
   def destroy

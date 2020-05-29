@@ -1,0 +1,7 @@
+<h2>Edit new quote</h2><br><br>
+<%= form_with model: @book.quotes.build, local: true do | f |  %>
+    <%= f.label "Edit Quote" %><br><br>
+    <%= f.text_area :content %><br><br>
+  
+    <%= f.submit "Edit quote" %>
+<% end %>

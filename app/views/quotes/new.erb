@@ -1,7 +1,7 @@
 <h2>Create new quote</h2><br><br>
 <%= form_with model: @book.quotes.build, local: true do | f |  %>
 <%= f.hidden_field :book_id, value: @book.id %>
-    <%= f.label :content %><br><br>
+    <%= f.label "New Quote" %><br><br>
     <%= f.text_area :content %><br><br>
   
     <%= f.submit "Create quote" %>
