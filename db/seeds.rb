@@ -11,7 +11,7 @@ Book.create(
     description: Faker::Lorem.sentence(word_count: 50)
     )
 
-Category.create(
+Genre.create(
     name: Faker::Book.genre
 )
 

@@ -1,6 +1,6 @@
 class Book < ApplicationRecord
-    has_many :book_categories
-    has_many :categories, through: :book_categories
+    has_many :book_genres
+    has_many :genres, through: :book_genres
     has_many :quotes
     has_many :users, through: :quotes
 
