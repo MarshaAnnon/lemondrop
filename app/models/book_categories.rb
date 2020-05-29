@@ -1,4 +1,4 @@
-class BookQuote < ApplicationRecord
+class BookCategories < ApplicationRecord
     belongs_to :book 
     belongs_to :user
 end
