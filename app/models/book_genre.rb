@@ -1,4 +1,4 @@
-class BookCategories < ApplicationRecord
+class BookGenre < ApplicationRecord
     belongs_to :book 
-    belongs_to :user
+    belongs_to :genre
 end
