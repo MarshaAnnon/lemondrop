@@ -4,6 +4,8 @@ class Book < ApplicationRecord
     has_many :quotes
     has_many :users, through: :quotes
 
+    #accepts_nested_attributes_for :genres
+
     def genres_attributes=(genre_attributes)
         genre_attributes.values.each do | genre_attribute |
             if genre_attribute["name"].present?

@@ -1,29 +1,12 @@
 <h1>Hi <%= current_user %>! Welcome to Lemondrop</h1>
 
-<% if user_signed_in? %> 
-  <h3>Here are your books</h3>
 
-  <br>
-  <li><%= link_to "View Reading Pods",  %></li>
-  <br>
-  <br>
-  <li><%= link_to "View Current Months Books",  %></li><!--TODO: custom scope method  for this -->
-  <br>
-  <br>
-  <%= button_to "Create Reading Pod", , method: "get" %>
-  <br>
-  <br>
-  <%= form_with model: @category do |f| %>
-    <%= f.collection_select :category_id, Category.all, :id, :name, prompt: "Categories" %>
-    <%= f.submit %>
-  <% end %>
-<% else %>
-  <h3>Please sign in or sign up above</h3>
+<ul>
+<% @user.books.each do |book| %>
+    <li> <%= link_to book.title, book_path(book) %> </li>
 <% end %>
+</ul>
 
-<%#= form_with model: @pod do |f| %>
-  <%#= f.collection_select :pod_id, Pod.all, :id, :name, prompt: "Select Reading Pod" %>
-  <%#= f.submit %>
-<%# end %>
+
 
 
