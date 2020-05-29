@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_29_015407) do
+ActiveRecord::Schema.define(version: 2020_05_29_024456) do
 
-  create_table "book_categories", force: :cascade do |t|
+  create_table "book_genres", force: :cascade do |t|
     t.integer "book_id"
-    t.integer "category_id"
+    t.integer "genre_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2020_05_29_015407) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "categories", force: :cascade do |t|
+  create_table "genres", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
