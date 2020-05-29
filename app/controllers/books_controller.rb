@@ -8,16 +8,20 @@ class BooksController < ApplicationController
     
   def new
     @book = current_user.books.build
+    @book.quotes.build
   end
-    
+
   def create
     @book = current_user.books.build(book_params)
     if @book.save
       @book.quotes.build
       current_user.books << @book
       redirect_to book_path(@book)
+        if @book.errors.any?
+          render "edit"
+        end
     else
-      redirect_to root_path
+      render :new
     end
   end
 
@@ -26,6 +30,31 @@ class BooksController < ApplicationController
       redirect_to books_path
     end
   end
+
+  def edit
+    if !@book
+        redirect_to books_path
+    end
+end
+
+def update
+    if @book
+        @book.update(book_params)
+        if @book.errors.any?
+            render "edit"
+        else
+            redirect_to books_path
+        end
+    else
+        render "edit"
+    end
+end
+
+def destroy
+    @book.destroy
+    redirect_to book_path
+end
+
       
     
   private
