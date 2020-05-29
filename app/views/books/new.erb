@@ -14,7 +14,12 @@
 
     Choose a genre:<br><br>
     
-    <%= f.collection_select :genre_id, Genre.all, :id, :name %>
+    <%= f.collection_select :genre_ids, Genre.all, :id, :name %><br><br>
+    <%= f.fields_for :genres, @book.genres.build do | g | %>
+        <%= g.label :name, "Do you want to create a Genre?" %>
+        <%= g.text_field :name %>
+    <% end %>
+    <%#= f.collection_select :genre_id, Genre.all, :id, :name %>
     
 
     <h4>Add a New Quote:</h4>
