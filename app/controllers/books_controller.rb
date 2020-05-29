@@ -3,19 +3,20 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
-    @books = book.all
+    @books = Book.all
   end
     
   def new
     @book = current_user.books.build
     @book.quotes.build
+    @book.genres.build
   end
 
   def create
     @book = current_user.books.build(book_params)
+    #@book.book_genres.genre_id = params[:genre_id]
+    
     if @book.save
-      @book.quotes.build
-      current_user.books << @book
       redirect_to book_path(@book)
         if @book.errors.any?
           render "edit"
@@ -35,32 +36,30 @@ class BooksController < ApplicationController
     if !@book
         redirect_to books_path
     end
-end
+  end
 
-def update
+  def update
     if @book
         @book.update(book_params)
         if @book.errors.any?
             render "edit"
         else
-            redirect_to books_path
+            redirect_to book_path
         end
     else
         render "edit"
     end
-end
+  end
 
-def destroy
-    @book.destroy
-    redirect_to book_path
-end
+  def destroy
+      @book.destroy
+      redirect_to book_path
+  end
 
-      
-    
   private
   
   def book_params
-    params.require(:book).permit(:title, :author, :description, genre_id:[],genres_attributes: [:name])
+    params.require(:book).permit(:title, :author, :description, genres_attributes: [:name, :genre_id], quotes_attributes: [:content])
   end
 
   def set_book
