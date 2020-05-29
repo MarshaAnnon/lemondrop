@@ -1,11 +1,15 @@
-<h1>Hi <%= current_user %>! Welcome to Lemondrop</h1>
-
-
-<ul>
-<% @user.books.each do |book| %>
-    <li> <%= link_to book.title, book_path(book) %> </li>
+<% if user_signed_in? %>
+    <h1>Hi <%= current_user.username %>! Welcome to Lemondrop</h1>
+    <%= button_to "Create New Book", new_book_path, method: "get" %>
+<% else %>
+    <h1>Hi! Welcome to Lemondrop</h1><br><br>
+    <h4>Please sign in or sign up above</h4>
 <% end %>
-</ul>
+
+
+
+<!--Here a user should see a dropdown of genres-->
+<!--Here a user images of books with links to the book show page-->
 
 
 

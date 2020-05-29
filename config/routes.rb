@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     resources :quotes, only: [:new, :show, :edit, :update, :destroy]
   end
 
+  resources :books, only: [:show] do
+    resources :genres, only: [:show]
+  end
+
   devise_for :users, :controllers => {registrations: 'registrations', omniauth_callbacks: 'omniauth' }
 
   root to: "application#home"
