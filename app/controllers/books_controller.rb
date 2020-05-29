@@ -14,8 +14,6 @@ class BooksController < ApplicationController
 
   def create
     @book = current_user.books.build(book_params)
-    #@book.book_genres.genre_id = params[:genre_id]
-    
     if @book.save
       redirect_to book_path(@book)
         if @book.errors.any?
@@ -59,7 +57,7 @@ class BooksController < ApplicationController
   private
   
   def book_params
-    params.require(:book).permit(:title, :author, :description, genres_attributes: [:name, :genre_id], quotes_attributes: [:content])
+    params.require(:book).permit(:title, :author, :description, :genre_ids, genres_attributes: [:name, :genre_id], quotes_attributes: [:content])
   end
 
   def set_book
