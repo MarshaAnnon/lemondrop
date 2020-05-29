@@ -1,16 +1,16 @@
-<h1>Hi, <%= current_user.name %>! Welcome to the Reading Pod</h1>
+<h1>Hi <%= current_user %>! Welcome to Lemondrop</h1>
 
 <% if user_signed_in? %> 
-  <h3>Reading Pods</h3>
+  <h3>Here are your books</h3>
 
   <br>
-  <li><%= link_to "View Reading Pods", pods_path %></li>
+  <li><%= link_to "View Reading Pods",  %></li>
   <br>
   <br>
-  <li><%= link_to "View Current Months Books", books_path %></li><!--TODO: custom scope method  for this -->
+  <li><%= link_to "View Current Months Books",  %></li><!--TODO: custom scope method  for this -->
   <br>
   <br>
-  <%= button_to "Create Reading Pod", new_pod_path, method: "get" %>
+  <%= button_to "Create Reading Pod", , method: "get" %>
   <br>
   <br>
   <%= form_with model: @category do |f| %>
