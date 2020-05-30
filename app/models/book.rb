@@ -4,7 +4,7 @@ class Book < ApplicationRecord
     has_many :quotes
     belongs_to :user
 
-    accepts_nested_attributes_for :genres
+    #accepts_nested_attributes_for :genres
     accepts_nested_attributes_for :quotes
 
     def genres_attributes=(genre_attributes)

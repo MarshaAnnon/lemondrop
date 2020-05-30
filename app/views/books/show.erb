@@ -13,7 +13,7 @@
 <br>
 <ul>
     <% @book.quotes.each do | q | %>
-        <li><%= q.content %></li>
+        <li><%= link_to (q.content), quote_path(q.id) %></li>
     <% end %>
 </ul>
 <br>

@@ -1,5 +1,11 @@
 class QuotesController < ApplicationController
 
+  before_action :set_quote, only: [:show, :edit, :update, :destroy]
+  
+  def index
+    @quotes = Quote.all
+  end
+
   def new
     if params[:book_id]
       @book = Book.find_by_id(params[:book_id])
@@ -26,7 +32,7 @@ class QuotesController < ApplicationController
   end
 
   def update
-    @quote = @book.quotes.build(quote_params)
+    @book = Book.find_by(params[:quote][:book_id])
     @quote.update(quote_params)
       if @quote.errors.any?
         render "edit"
@@ -36,15 +42,19 @@ class QuotesController < ApplicationController
   end
 
   def destroy
-      @quote.destroy
-      redirect_to root_path
-      flash[:notice] = "You have successfully deleted quote"
+    @quote.destroy
+    redirect_to books_path
+    flash[:notice] = "You have successfully deleted quote"
   end
   
     private
     
     def quote_params
       params.require(:quote).permit(:content, :user_id, :book_id)
+    end
+
+    def set_quote
+      @quote = Quote.find_by_id(params[:id])
     end
     
 

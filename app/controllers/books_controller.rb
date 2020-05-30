@@ -38,14 +38,14 @@ class BooksController < ApplicationController
 
   def update
     if @book
-        @book.update(book_params)
+      @book.update(book_params)
         if @book.errors.any?
-            render "edit"
+          render "edit"
         else
-            redirect_to book_path
+          redirect_to @book
         end
     else
-        render "edit"
+      render "edit"
     end
   end
 

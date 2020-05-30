@@ -1,4 +1,4 @@
-<h2>Create new book</h2><br><br>
+<h3>Edit new book</h3><br><br>
 <%= form_with model: @book, local: true do | f |  %>
     <%= f.label :title %><br><br>
     <%= f.text_field :title, class: @book.errors.any? ? "error-field" : nil %><br><br>
@@ -9,17 +9,13 @@
     <%= f.label :description %><br><br>
     <%= f.text_area :description %><br><br>
 
-    Choose a genre:<br><br>
+    <h4>Choose a genre:</h4><br>
     
     <%= f.collection_select :genre_ids, Genre.all, :id, :name %><br><br>
-    <%= f.fields_for :genres, @book.genres.build do | g | %>
-        <%= g.label :name, "Do you want to create a Genre?" %>
-        <%= g.text_field :name %>
+        <%= f.fields_for :genres, @book.genres.build do | g | %>
+            <%= g.label :name, "Do you want to add a Genre?" %><br><br>
+            <%= g.text_field :name %><br><br>
     <% end %>
-    <%#= f.collection_select :genre_id, Genre.all, :id, :name %>
     
-    <h4>Edit Quote:</h4> 
-        <%= f.text_area :content %><br><br>
-    <br>
-    <%= f.submit "Create Book" %>
+    <%= f.submit "Edit Book" %>
 <% end %>

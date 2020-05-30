@@ -1,0 +1,9 @@
+<h3>Here are all your quotes</h3>
+
+<ul>
+<% @quotes.each do |q| %>
+    <li><%= q.content %></li><br><br>
+  <% end %>
+</ul>
+
+<!--How can I link these quotes to the book they belong to and if clicked the user is taken to the book show page?>
