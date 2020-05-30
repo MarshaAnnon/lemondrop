@@ -7,7 +7,7 @@ class QuotesController < ApplicationController
   end
 
   def create
-    @book = Book.find_by_id(params[:quote][:book_id])    
+    @book = Book.find_by_id(params[:quote][:book_id])
     @quote = @book.quotes.build(quote_params)
     if @quote.save
       redirect_to @book
@@ -15,18 +15,18 @@ class QuotesController < ApplicationController
       render :new
     end
   end
-  
+
   def show
-    if !@quote
-      redirect_to books_path
-    end
+    @quote = Quote.find_by_id(params[:id])
   end
-  
+
   def edit
+    @quote = Quote.find_by_id(params[:id])
   end
 
   def update
-    @quote = @book.quotes.build(quote_params)
+    @book = Book.find_by(params[:quote][:book_id])
+    @quote = Quote.find_by_id(params[:id])
     @quote.update(quote_params)
       if @quote.errors.any?
         render "edit"
@@ -36,16 +36,17 @@ class QuotesController < ApplicationController
   end
 
   def destroy
+      @quote = Quote.find_by_id(params[:id])
       @quote.destroy
-      redirect_to root_path
+      redirect_to books_path
       flash[:notice] = "You have successfully deleted quote"
   end
-  
+
     private
-    
+
     def quote_params
       params.require(:quote).permit(:content, :user_id, :book_id)
     end
-    
+
 
 end

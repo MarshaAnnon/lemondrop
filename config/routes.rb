@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   resources :genres
   resources :quotes
   resources :books
-  
+
   resources :books, only: [:show] do
-    resources :quotes, only: [:new, :show, :edit, :update, :destroy]
+    resources :quotes
   end
 
   resources :books, only: [:show] do
