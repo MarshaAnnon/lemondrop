@@ -4,6 +4,18 @@ class Book < ApplicationRecord
     has_many :quotes
     belongs_to :user
 
+    validates :title, presence: true, message: "cannot be blank."
+    validates :author, presence: true, message: "cannot be blank."
+    
+
+    scope :author, -> { where("author = '?'", author) }
+    scope :description, -> { where(description: true) }
+    scope :book_quote, -> { where(quote: true) }
+
+    #looking for a scope method that returns all the books associated with an author
+    #looking for a scope method that returns the books with a description present
+    #looking for a scope method that returns the books with a quote present
+
     #accepts_nested_attributes_for :genres
     accepts_nested_attributes_for :quotes
 
