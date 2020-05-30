@@ -4,7 +4,7 @@
 
 <h4>Genre:</h4>
     <% @book.genres.each do | g | %>
-        <li><%= g.name %></li>
+        <><%= g.name %></li>
     <% end %>
 
 <br>
@@ -13,7 +13,9 @@
 <br>
 <ul>
     <% @book.quotes.each do | q | %>
-        <li><%= link_to (q.content), quote_path(q.id) %></li>
+        <li><%= q.content %></li><br><br>
+        <%= button_to "Edit Quote", edit_quote_path(q), method: "get" %><br><br>
+        <%= button_to "Delete Quote", quote_path(q), method: "delete"%><br><br>
     <% end %>
 </ul>
 <br>

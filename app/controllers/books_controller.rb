@@ -37,6 +37,7 @@ class BooksController < ApplicationController
   end
 
   def update
+    binding.pry
     if @book
       @book.update(book_params)
         if @book.errors.any?
