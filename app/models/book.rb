@@ -4,8 +4,8 @@ class Book < ApplicationRecord
     has_many :quotes
     belongs_to :user
 
-    validates :title, presence: true, message: "cannot be blank."
-    validates :author, presence: true, message: "cannot be blank."
+    validates :title, presence: true
+    validates :author, presence: true
     
 
     scope :author, -> { where("author = '?'", author) }
