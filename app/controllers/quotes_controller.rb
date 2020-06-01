@@ -1,7 +1,11 @@
 class QuotesController < ApplicationController
 
+  before_action :set_quote, only: [:show, :edit, :update, :delete]
   
   def index
+    if params[:book_id]
+      @book = Book.find_by_id(params[:book_id])
+    end
     @quotes = Quote.all
   end
 
@@ -22,16 +26,13 @@ class QuotesController < ApplicationController
   end
   
   def show
-    @quote = Quote.find_by_id(params[:id])
   end
   
   def edit
-    @quote = Quote.find_by_id(params[:id])
   end
 
   def update
     @book = Book.find_by(params[:quote][:book_id])
-    @quote = Quote.find_by_id(params[:id])
     @quote.update(quote_params)
       if @quote.errors.any?
         render "edit"
@@ -41,7 +42,6 @@ class QuotesController < ApplicationController
   end
 
   def destroy
-    @quote = Quote.find_by_id(params[:id])
     @book = @quote.book
     @quote.destroy
     redirect_to @book
@@ -54,5 +54,8 @@ class QuotesController < ApplicationController
       params.require(:quote).permit(:content, :user_id, :book_id)
     end
 
-    
+    def set_quote
+      @quote = Quote.find_by_id(params[:id])
+    end
+
 end
