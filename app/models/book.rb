@@ -8,9 +8,9 @@ class Book < ApplicationRecord
     validates :author, presence: true
     
 
-    scope :author_name, -> { where("author = '?'", author) }
+    #scope :author_name, -> { where("author = '?'", author) }
     scope :book_description, -> { where("description > 0") }
-    scope :book_quote, -> { where(quote: true) }
+    #scope :book_quote, -> { where(quote: true) }
 
     #looking for a scope method that returns all the books associated with an author
     #looking for a scope method that returns the books with a description present

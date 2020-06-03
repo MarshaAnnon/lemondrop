@@ -1,4 +1,7 @@
 <h3><%= current_user.username.capitalize %>, here are all your books:</h3><br>
-<% @books.each do |book| %>  
-    <h4><%= link_to(book.title, book) %></h4>
-<% end %>
+
+<ul>
+    <% @books.each do |book| %>  
+        <li><%= link_to(book.title, book) %></li><br>
+    <% end %>
+</ul>

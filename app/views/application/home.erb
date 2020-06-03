@@ -1,11 +1,11 @@
 <% if user_signed_in? %>
     <h1>Hi <%= current_user.username %>! Welcome to Lemondrop</h1>
     
-    <%= link_to "See all your books", books_path %><br><br>
-    <%= link_to "See all your quotes", quotes_path %><br><br>
+    <%= link_to "See all your Books", books_path %><br><br>
+    <%= link_to "See all your Quotes", quotes_path %><br><br>
     <%= button_to "Create New Book", new_book_path, method: "get" %><br><br>
 <% else %>
-    <h1>Hi! Welcome to Lemondrop</h1><br><br>
+    <h1>Welcome to Lemondrop</h1><br><br>
     <h4>Please sign in or sign up above</h4>
 <% end %>
 

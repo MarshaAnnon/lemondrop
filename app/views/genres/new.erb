@@ -1,0 +1,8 @@
+<h2>Add Genre</h2><br><br>
+<%= form_with model: @book.genres.build, local: true do | f |  %>
+<%= f.hidden_field :book_id, value: @book.id %>
+    <%= f.label "Sub-Genre" %><br><br>
+    <%= f.text_field :sub_genre %><br><br>
+    <%= f.submit "Add Genre" %>
+<% end %>
+<%#= f.text_area :content, class: @genre.errors.any? ? "error-field" : nil %>

@@ -4,10 +4,14 @@
 
 <h4>Genre:</h4>
     <% @book.genres.each do | g | %>
-        <%= g.name %></li>
+        <li><%= g.name %></li><br>
     <% end %>
-
 <br>
+
+<h4>Sub-Genre:</h4>
+    <% @book.book_genres.each do | bg | %>
+        <li><%= bg.sub_genre %></li><br>
+    <% end %>    
 <br>
 <h4>Quotes:</h4>
 <br>
@@ -15,7 +19,7 @@
     <% @book.quotes.each do | q | %>
         <li><%= q.content %></li><br><br>
         <%= button_to "Edit Quote", edit_book_quote_path(@book, q), method: "get" %><br>
-        <%= button_to "Delete Quote", quote_path(q), method: "delete"%><br><br>
+        <%= button_to "Delete Quote", quote_path(q), method: "delete"%><br>
     <% end %>
 </ul>
 <br>
@@ -25,3 +29,9 @@
 <%= button_to("Delete Book", @book, method: :delete, data:{confirm: "Are you sure?"}) %>
 
 
+<!--@book.bookgenres.is_subgenre.each do |sg|
+	sg.name
+end
+@book.bookgenres.main_genre.each do |sg|
+	sg.name
+end-->

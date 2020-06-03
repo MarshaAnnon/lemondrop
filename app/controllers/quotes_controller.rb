@@ -34,11 +34,11 @@ class QuotesController < ApplicationController
   def update
     @book = Book.find_by(params[:quote][:book_id])
     @quote.update(quote_params)
-      if @quote.errors.any?
-        render "edit"
-      else
-        redirect_to @quote.book
-      end
+    if @quote.errors.any?
+      render "edit"
+    else
+      redirect_to @quote.book
+    end
   end
 
   def destroy
@@ -48,14 +48,14 @@ class QuotesController < ApplicationController
     flash[:notice] = "You have successfully deleted quote"
   end
   
-    private
-    
-    def quote_params
-      params.require(:quote).permit(:content, :user_id, :book_id)
-    end
-
-    def set_quote
-      @quote = Quote.find_by_id(params[:id])
-    end
+  private
+  
+  def quote_params
+    params.require(:quote).permit(:content, :user_id, :book_id)
+  end
+  
+  def set_quote
+    @quote = Quote.find_by_id(params[:id])
+  end
 
 end

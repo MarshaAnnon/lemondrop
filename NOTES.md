@@ -12,3 +12,5 @@ Confirm:
  Limited logic in controllers
  Views use helper methods if appropriate
  Views use partials if appropriate
+
+ class: @book.errors.any? ? "error-field" : nil

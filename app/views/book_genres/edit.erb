@@ -1,0 +1,9 @@
+<h2>Edit Sub-Genre</h2><br><br>
+<%= form_with model: @bookgenre, local: true do | f |  %>
+    
+    <%= f.text_field :sub_genre %><br><br>
+  
+    <%= f.submit "Edit Sub-Genre" %>
+<% end %>
+
+<!-- , class: @quote.errors.any? ? "error-field" : nil  -->
