@@ -1,24 +1,28 @@
-# README
+Project Title: Lemondrop
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is creating a CRUD, MVC app with a has_many through relationship using Rails. This is a custom app that is created to track the inspiring quotes you come across when reading books.
 
-Things you may want to cover:
+This project was completed as part of Flatiron School's Software Engineering course.
 
-* Ruby version
+Installation
+To use this app, just clone this repo.
 
-* System dependencies
+And then execute:
 
-* Configuration
+run 'bundle install'
+Then:
+Step 1) Run: rake db:migrate after cloning the repository.
+Step 2) Run: rake db:seed
+Step 3) Run: rails s
+Step 4) Copy & paste the domain into a web browser URL and go from there.
 
-* Database creation
 
-* Database initialization
+Contributing: Bug reports and pull requests are welcome on GitHub at https://github.com/marshaannon/lemondrop. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
-* How to run the test suite
+Versioning: For the versions available, see the tags on this repository.
 
-* Services (job queues, cache servers, search engines, etc.)
+Authors: Marsha Annon - initial work
 
-* Deployment instructions
+License: This project is licensed under the MIT License - see the LICENSE.md file for details
 
-* ...
+Code of Conduct: Everyone interacting in the Lemondrop’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the code of conduct.
