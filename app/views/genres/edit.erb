@@ -1,8 +1,0 @@
-<h2>Edit Genre</h2><br><br>
-<%= form_with model: @genre, local: true do | f |  %>
-    <%= f.text_field :name, class: @genre.errors.any? ? "error-field" : nil %><br><br>
-    <%= f.hidden_field :book_id, value: @book.id %>
-    <%= f.submit "Edit Genre" %>
-<% end %>
-
-<!-- , class: @genre.errors.any? ? "error-field" : nil  -->

@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_02_193758) do
+ActiveRecord::Schema.define(version: 2020_06_03_234754) do
 
   create_table "book_genres", force: :cascade do |t|
     t.integer "book_id"
     t.integer "genre_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "sub_genre"
+    t.string "sub_genre"
   end
 
   create_table "books", force: :cascade do |t|
@@ -52,6 +52,16 @@ ActiveRecord::Schema.define(version: 2020_06_02_193758) do
     t.index ["updated_at"], name: "index_sessions_on_updated_at"
   end
 
+  create_table "user_books", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "book_id", null: false
+    t.boolean "current_book"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_user_books_on_book_id"
+    t.index ["user_id"], name: "index_user_books_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -67,4 +77,6 @@ ActiveRecord::Schema.define(version: 2020_06_02_193758) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "user_books", "books"
+  add_foreign_key "user_books", "users"
 end

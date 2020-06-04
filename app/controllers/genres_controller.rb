@@ -22,9 +22,11 @@ class GenresController < ApplicationController
   def edit
     @book = Book.find_by_id(params[:book_id])
     @genre = Genre.find_by_id(params[:id])
+    @bookgenre = BookGenre.find_by(book_id: params[:book_id], genre_id: params[:id])
   end
     
   def update
+    binding.pry
     @book = Book.find_by(id: params[:genre][:book_id])
     @genre = Genre.find_by_id(params[:id])
     @genre.update(genre_params)

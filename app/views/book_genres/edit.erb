@@ -1,9 +1,6 @@
-<h2>Edit Sub-Genre</h2><br><br>
-<%= form_with model: @bookgenre, local: true do | f |  %>
-    
-    <%= f.text_field :sub_genre %><br><br>
-  
-    <%= f.submit "Edit Sub-Genre" %>
+<h2>Edit Genre</h2><br><br>
+<%= form_with model: @genre, local: true do | f |  %>
+    <%= f.text_field :name, class: @genre.errors.any? ? "error-field" : nil %><br><br>
+    <%= f.hidden_field :book_id, value: @book.id %>
+    <%= f.submit %>
 <% end %>
-
-<!-- , class: @quote.errors.any? ? "error-field" : nil  -->

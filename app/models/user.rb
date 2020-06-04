@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :quotes
-  has_many :books
+  has_many :user_books
+  has_many :books, through: :user_books
+
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :books, only: [:show] do
-    resources :book_genres, only: [:new]
+    resources :book_genres, only: [:new, :edit]
   end
 
   devise_for :users, :controllers => {registrations: 'registrations', omniauth_callbacks: 'omniauth' }

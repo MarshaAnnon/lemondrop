@@ -2,7 +2,8 @@ class Book < ApplicationRecord
     has_many :book_genres
     has_many :genres, through: :book_genres
     has_many :quotes
-    belongs_to :user
+    has_many :user_books
+    has_many :users, through: :user_books
 
     validates :title, presence: true
     validates :author, presence: true

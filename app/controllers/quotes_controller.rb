@@ -42,10 +42,15 @@ class QuotesController < ApplicationController
   end
 
   def destroy
+    @quote = Quote.find_by_id(params[:id])
     @book = @quote.book
     @quote.destroy
-    redirect_to @book
-    flash[:notice] = "You have successfully deleted quote"
+    if params[:book_id]
+      redirect_to @book
+    else
+      redirect_to quotes_path
+      flash[:notice] = "You have successfully deleted quote"
+    end
   end
   
   private

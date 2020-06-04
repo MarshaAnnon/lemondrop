@@ -3,6 +3,7 @@
 <ul>
     <% @quotes.each do | q | %>
         <li><%= q.content %></li><br><br>
+        <%= button_to "Delete Quote", quote_path(q), method: "delete" %>
         <%#= button_to "See Book", book_path(@book, q), method: "get" %><br>
     <% end %>
 </ul>

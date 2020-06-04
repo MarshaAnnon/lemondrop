@@ -1,5 +1,16 @@
 <% if user_signed_in? %>
     <h1>Hi <%= current_user.username %>! Welcome to Lemondrop</h1>
+
+    
+
+    <% if current_user && @reading.any? %>
+        <h5>Here are your current books:</h5>    
+        <ul>
+        <% @reading.each do |r| %>
+            <li> <%= link_to r.book.title, book_path(r.book) %></li>
+        <% end %>
+        </ul>
+    <% end %>
     
     <%= link_to "See all your Books", books_path %><br><br>
     <%= link_to "See all your Quotes", quotes_path %><br><br>
@@ -9,8 +20,7 @@
     <h4>Please sign in or sign up above</h4>
 <% end %>
 
-<!--Here a user should see a dropdown of genres-->
-<!--Here a user images of books with links to the book show page-->
+
 
 
 

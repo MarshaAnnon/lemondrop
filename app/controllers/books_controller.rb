@@ -5,23 +5,26 @@ class BooksController < ApplicationController
   def index
     @books = Book.book_description
   end
-    
+  
   def new
     @book = current_user.books.build
     @book.quotes.build
     @book.genres.build
     @book.book_genres.build
   end
-
+  
   def create
-    @book = current_user.books.build(book_params)
+    @user_book = current_user.user_books.build
+    @book = Book.new(book_params)
     if @book.save
-      @genre = @book.genres.last
-      @genre.name = params[:book][:genre][:name]
-      @genre.save
+      
+      @user_book.book = @book
+      @user_book.current_book = params[:book][:current_book]
+      @user_book.save
       @book_genre = @book.book_genres.last
       @book_genre.sub_genre = params[:book][:book_genre][:sub_genre]
       @book_genre.save
+      binding.pry
       redirect_to book_path(@book)
         if @book.errors.any?
           render "edit"
