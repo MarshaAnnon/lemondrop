@@ -1,0 +1,34 @@
+<% if @book.errors.any? %>
+    <h4 class="error"><%= @book.errors.full_messages.to_sentence %></h4>
+<% end %>
+<%= form_with model: @book, local: true do | f |  %>
+    <%= f.label :title %><br><br>
+    <%= f.text_field :title, class: @book.errors.any? ? "error-field" : nil %><br><br>
+  
+    <%= f.label :author %><br><br>
+    <%= f.text_field :author %><br><br>
+
+    <%= f.label :description %><br><br>
+    <%= f.text_area :description %><br><br>
+
+    <%= f.fields_for :user_books do | ub | %>
+        <%= ub.label :current_book %>
+        <%= ub.hidden_field :user_id, value: current_user.id %>
+        <%= ub.check_box :current_book %>
+    <% end %>
+
+    Choose a genre:<br><br>
+    
+    <%= f.fields_for :genres do | genre | %>
+        <%= genre.label "Genre" %>
+        <%= genre.text_field :name %><br>
+    <% end %>
+
+    <h4>Add a Quote:</h4>
+    <%= f.fields_for :quotes do |q| %>  
+        <%= q.label "Quote" %><br><br>
+        <%= q.text_area :content %><br><br>
+    <% end %>
+    <br>
+    <%= f.submit %>
+<% end %>

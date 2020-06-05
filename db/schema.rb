@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_03_234754) do
+ActiveRecord::Schema.define(version: 2020_06_05_181409) do
 
   create_table "book_genres", force: :cascade do |t|
     t.integer "book_id"
     t.integer "genre_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "sub_genre"
   end
 
   create_table "books", force: :cascade do |t|

@@ -10,17 +10,12 @@
     <li><%= bg.genre.name %></li><br>
 <% end %>    
 
-<h5>Sub-Genre:</h5>
-<% @book.book_genres.each do | bg | %>
-    <li><%= bg.sub_genre %></li><br>
-<% end %>    
 <br>
 <h5>Quotes:</h5>
 <br>
 <ul>
     <% @book.quotes.each do | q | %>
         <li><%= q.content %></li><br><br>
-        <%= button_to "Edit Quote", edit_book_quote_path(@book, q), method: "get" %><br>
         <%= button_to "Delete Quote", quote_path(q), method: "delete" %><br>
     <% end %>
 </ul>

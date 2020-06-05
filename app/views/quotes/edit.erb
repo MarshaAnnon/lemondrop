@@ -1,9 +1,2 @@
 <h2>Edit quote</h2><br><br>
-<%= form_with model: @quote, local: true do | f |  %>
-    
-    <%= f.text_area :content %><br><br>
-  
-    <%= f.submit "Edit Quote" %>
-<% end %>
-
-<!-- , class: @quote.errors.any? ? "error-field" : nil  -->
+<%= render "form" %>

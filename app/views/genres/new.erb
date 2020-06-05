@@ -1,3 +1,7 @@
+<% if @user.errors.any? %>
+  <%= @user.errors.full_messages.to_sentence %>
+<% end %>
+
 <h2>Add Genre</h2><br><br>
 <%= form_with model: @book.genres.build, local: true do | f |  %>
 <%= f.hidden_field :book_id, value: @book.id %>

@@ -1,17 +1,2 @@
 <h2>Edit book</h2><br><br>
-<% if @book.errors.any? %>
-    <h4 class="error"><%= @book.errors.full_messages.to_sentence %></h4>
-<% end %>
-<%= form_with model: @book, local: true do | f |  %>
-    <%= f.label :title %><br><br>
-    <%= f.text_field :title, class: @book.errors.any? ? "error-field" : nil %><br><br>
-  
-    <%= f.label :author %><br><br>
-    <%= f.text_field :author %><br><br>
-
-    <%= f.label :description %><br><br>
-    <%= f.text_area :description %><br><br>
-    
-    <br>
-    <%= f.submit %>
-<% end %>
+<%= render "form" %>

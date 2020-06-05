@@ -1,8 +1,5 @@
 <% if user_signed_in? %>
     <h1>Hi <%= current_user.username %>! Welcome to Lemondrop</h1>
-
-    
-
     <% if current_user && @reading.any? %>
         <h5>Here are your current books:</h5>    
         <ul>
@@ -10,10 +7,11 @@
             <li> <%= link_to r.book.title, book_path(r.book) %></li>
         <% end %>
         </ul>
+        <%= link_to "See all your Books", books_path %><br><br>
+        <%= link_to "See all your Quotes", quotes_path %><br><br>
     <% end %>
     
-    <%= link_to "See all your Books", books_path %><br><br>
-    <%= link_to "See all your Quotes", quotes_path %><br><br>
+    
     <%= button_to "Create New Book", new_book_path, method: "get" %><br><br>
 <% else %>
     <h1>Welcome to Lemondrop</h1><br><br>

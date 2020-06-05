@@ -21,7 +21,7 @@ class OmniauthController < ApplicationController
     end
 
     def failure
-        flash[:error] = "Sign in unsucessful. Please try again"
+        flash[:error] = "Sign in unsuccessful. Please try again"
         redirect_to new_user_registration_path
     end
 end
