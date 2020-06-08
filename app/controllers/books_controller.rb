@@ -3,8 +3,17 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit]
 
   def index
+    @book = Book.all
     @books = Book.book_description
+    binding.pry
+    @books = Book.book_title(params[:title]) if params[:title].present?
   end
+
+  #def index
+  #  @products = Product.all
+  #  @products = Product.search(params[:search]) unless params[:search].blank?
+  #  @products = @products.toys unless params[:toys].blank?
+  #end
   
   def new
     @book = current_user.books.build
@@ -82,7 +91,8 @@ class BooksController < ApplicationController
       :title, 
       :author, 
       :description, 
-      :genre_ids, 
+      :genre_ids,
+      :book_title, 
       :genres_attributes => [:id, :name, :genre_id], 
       :quotes_attributes => [:id, :content, :_destroy], 
       :book_genres_attributes => [:id, :book_id, :genre_id],       

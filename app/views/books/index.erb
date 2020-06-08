@@ -1,7 +1,14 @@
 <h3><%= current_user.username.capitalize %>, here are all your books:</h3><br>
 
+<%= form_tag books_path, :method => "get" do %>
+    <%= label_tag "Search for a book" %>
+    <%= text_field_tag :title, params[:title] %>
+    <%= submit_tag "Search" %>
+<% end %>
+
 <ul>
     <% @books.each do |book| %>  
         <li><%= link_to(book.title, book) %></li><br>
     <% end %>
 </ul>
+

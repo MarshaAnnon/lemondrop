@@ -2,10 +2,13 @@
 
 <ul>
     <% @quotes.each do | q | %>
-        <li><%= q.content %></li><br><br>
-        <%= button_to "Delete Quote", quote_path(q), method: "delete" %>
-        <%#= button_to "See Book", book_path(@book, q), method: "get" %><br>
+        <li><%= q.content %></li><br>
+        <%= button_to "Delete Quote", quote_path(q), method: "delete" %><br><br>
+        <%= button_to "See Book", book_path(q.book), method: "get" %><br>
     <% end %>
 </ul>
 
-<!--How can I link these quotes to the book they belong to and if clicked the user is taken to the book show page?>
+<!--
+- <%#= link_to, q.content, book_path(@book) %>
+- 
+How can I link these quotes to the book they belong to and if clicked the user is taken to the book show page?>

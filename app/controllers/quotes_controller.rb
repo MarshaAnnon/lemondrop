@@ -7,6 +7,7 @@ class QuotesController < ApplicationController
       @book = Book.find_by_id(params[:book_id])
     end
     @quotes = Quote.all
+    #@quotes = Quote.where("book_id = ?" params[:book_id])
   end
 
   def new
@@ -16,7 +17,6 @@ class QuotesController < ApplicationController
   end
 
   def create
-    @book = Book.find_by_id(params[:quote][:book_id])    
     @quote = @book.quotes.build(quote_params)
     if @quote.save
       redirect_to @book
@@ -32,7 +32,6 @@ class QuotesController < ApplicationController
   end
 
   def update
-    @book = Book.find_by(params[:quote][:book_id])
     @quote.update(quote_params)
     if @quote.errors.any?
       render "edit"

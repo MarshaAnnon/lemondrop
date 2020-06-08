@@ -14,17 +14,14 @@
     <%= f.fields_for :user_books do | ub | %>
         <%= ub.label :current_book %>
         <%= ub.hidden_field :user_id, value: current_user.id %>
-        <%= ub.check_box :current_book %>
+        <%= ub.check_box :current_book %><br><br>
     <% end %>
-
-    Choose a genre:<br><br>
     
     <%= f.fields_for :genres do | genre | %>
-        <%= genre.label "Genre" %>
-        <%= genre.text_field :name %><br>
+        <%= genre.label "Genre" %><br><br>
+        <%= genre.text_field :name %><br><br>
     <% end %>
 
-    <h4>Add a Quote:</h4>
     <%= f.fields_for :quotes do |q| %>  
         <%= q.label "Quote" %><br><br>
         <%= q.text_area :content %><br><br>
