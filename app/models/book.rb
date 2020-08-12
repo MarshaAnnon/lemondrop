@@ -15,14 +15,4 @@ class Book < ApplicationRecord
     accepts_nested_attributes_for :quotes, allow_destroy: true
     accepts_nested_attributes_for :genres, reject_if: proc { |attributes| attributes['name'].blank? }, allow_destroy: true
     accepts_nested_attributes_for :user_books, allow_destroy: true
-
-
-    #def genres_attributes=(genre_attributes)
-    #    genre_attributes.values.each do | genre_attribute |
-    #        if genre_attribute["name"].present?
-    #            genre = Genre.find_or_create_by(genre_attribute)
-    #            self.genres << genre
-    #        end
-    #    end
-    #end
 end
