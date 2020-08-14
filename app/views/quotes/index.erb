@@ -1,5 +1,4 @@
 <h3>Here are all your quotes</h3><br>
-
 <ul>
     <% @quotes.each do | q | %>
         <li><%= q.content %></li><br>
@@ -7,8 +6,3 @@
         <%= button_to "See Book", book_path(q.book), method: "get" %><br>
     <% end %>
 </ul>
-
-<!--
-- <%#= link_to, q.content, book_path(@book) %>
-- 
-How can I link these quotes to the book they belong to and if clicked the user is taken to the book show page?>
