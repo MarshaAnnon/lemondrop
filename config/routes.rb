@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  # top to bottom - specific to less specific
   resources :genres
   resources :quotes
   resources :books
