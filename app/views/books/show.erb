@@ -1,30 +1,33 @@
-<h5>Title:</h5>
-<%= @book.title %><br><br>
-<h5>Author:</h5>
-<%= @book.author %><br><br>
-<h5>Descripton:</h5>
-<%= @book.description %><br><br>
+<div id="book-show-container">
+    <h5><%= @book.title %></h5>
+    <br>
+    <p><%= @book.author %></p>
+    <br>
+    <p><%= @book.description %></p>
+    <br>
 
-<h5>Created by:</h5>
-<%= @book.user_books.first.username %>
-
-
-<h5>Genre:</h5>
-<% @book.book_genres.each do | bg | %>
-    <li><%= bg.genre.name %></li><br>
-<% end %>    
-
-<br>
-<h5>Quotes:</h5>
-<br>
-<ul>
+    <p>Genre: <% @book.book_genres.each do | bg | %>
+                    <%= bg.genre.name %><br>
+              <% end %>    
+    </p>
+</div>
+    <br>
+    <h5>Quotes:</h5>
+    <br>
     <% @book.quotes.each do | q | %>
-        <li><%= q.content %></li><br><br>
-        <%= button_to "Delete Quote", quote_path(q), method: "delete" %><br>
+        <div class="card">
+            <div class="card-body">
+                <p class="card-text"><%= q.content %></p>
+            </div>
+            <a class="badge badge-light" <%= link_to "Delete Quote", quote_path(q), method: "delete" %></a>
+            
+        </div>
     <% end %>
-</ul>
 <br>
 <br>
-<%= button_to "Add Quote", new_book_quote_path(@book), method: "get" %><br><br>
-<%= button_to "Edit Book", edit_book_path(@book), method: "get" %><br><br>
-<%= button_to("Delete Book", @book, method: :delete, data:{confirm: "Are you sure?"}) %>
+<div class="links">
+    <a class="badge badge-secondary" <%= link_to "Add Quote", new_book_quote_path(@book), method: "get" %></a>
+    <a class="badge badge-secondary" <%= link_to "Edit Book", edit_book_path(@book), method: "get" %></a>
+    <a class="badge badge-secondary" <%= link_to("Delete Book", @book, method: :delete, data:{confirm: "Are you sure?"}) %></a>
+    
+</div>
