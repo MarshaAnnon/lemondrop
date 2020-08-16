@@ -17,18 +17,17 @@ class QuotesController < ApplicationController
   end
 
   def create
-    @quote = @book.quotes.build(quote_params)
+    @quote = Quote.new(quote_params)
     if @quote.save
+      @book = @quote.book
       redirect_to @book
     else
       render :new
     end
   end
-  
+
   def show
-  end
-  
-  def edit
+    Quote.all(quote_params)
   end
 
   def update
