@@ -1,31 +1,33 @@
-<% if @book.errors.any? %>
-    <h4 class="error"><%= @book.errors.full_messages.to_sentence %></h4>
-<% end %>
-<%= form_with model: @book, local: true do | f |  %>
-    <%= f.label :title %><br><br>
-    <%= f.text_field :title, class: @book.errors.any? ? "error-field" : nil %><br><br>
-  
-    <%= f.label :author %><br><br>
-    <%= f.text_field :author %><br><br>
-
-    <%= f.label :description %><br><br>
-    <%= f.text_area :description %><br><br>
-
-    <%= f.fields_for :user_books do | ub | %>
-        <%= ub.label :current_book %>
-        <%= ub.hidden_field :user_id, value: current_user.id %>
-        <%= ub.check_box :current_book %><br><br>
+<div class="form">
+    <% if @book.errors.any? %>
+        <h4 class="error"><%= @book.errors.full_messages.to_sentence %></h4>
     <% end %>
+    <%= form_with model: @book, local: true do | f |  %>
+        <%= f.label :title %>:<br><br>
+        <%= f.text_field :title, size: "60x2", class: @book.errors.any? ? "error-field" : nil   %><br><br>
     
-    <%= f.fields_for :genres do | genre | %>
-        <%= genre.label "Genre" %><br><br>
-        <%= genre.text_field :name %><br><br>
+        <%= f.label :author %>:<br><br>
+        <%= f.text_field :author,  size: "60x2" %><br><br>
+    
+        <%= f.label :description %>:<br><br>
+        <%= f.text_area :description, size: "60x8" %><br><br>
+    
+        <%= f.fields_for :user_books do | ub | %>
+            <%= ub.label :current_book %>
+            <%= ub.hidden_field :user_id, value: current_user.id %>
+            <%= ub.check_box :current_book %><br><br>
+        <% end %>
+        
+        <%= f.fields_for :genres do | genre | %>
+            <%= genre.label "Genre" %>:<br><br>
+            <%= genre.text_field :name, size: "60x2" %><br><br>
+        <% end %>
+    
+        <%= f.fields_for :quotes do |q| %>  
+            <%= q.label "Quote" %>:<br><br>
+            <%= q.text_area :content, size: "60x6" %><br><br>
+        <% end %>
+        <br>
+        <%= f.submit %>
     <% end %>
-
-    <%= f.fields_for :quotes do |q| %>  
-        <%= q.label "Quote" %><br><br>
-        <%= q.text_area :content %><br><br>
-    <% end %>
-    <br>
-    <%= f.submit %>
-<% end %>
+</div>
