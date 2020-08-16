@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :books
   
   resources :books, only: [:show] do
-    resources :quotes, only: [:index, :new, :edit]
+    resources :quotes, only: [:index, :new, :show, :edit]
   end
 
   resources :books, only: [:show] do
