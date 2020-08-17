@@ -1,19 +1,30 @@
+<div class="hero-image-container">
+</div>
+<div id="main-container">
 <% if user_signed_in? %>
-    <h1>Hi <%= current_user.username %>! Welcome to Lemondrop</h1>
+    <h5>Hi <%= current_user.username %>!</h5>
+    </div>
+    
     <% if current_user && @reading.any? %>
-        <h5>Here are your current books:</h5>    
-        <ul>
+        <h5>Here's your current reading material:</h5>    
         <% @reading.each do |r| %>
-            <li> <%= link_to r.book.title, book_path(r.book) %></li>
+            <div class="card">
+                <div class="card-body">
+                   <a class="card-title"<%= link_to r.book.title, book_path(r.book), style: "color: #8F8255; font-weight: bold" %></a>
+                   <p class="card-text"<%= link_to r.book.description.slice(0..225), book_path(r.book), style: "color: #8F8255;" %>...</p>
+                </div>
+            </div>
         <% end %>
-        </ul>
-        <%= link_to "See all your Books", books_path %><br><br>
-        <%= link_to "See all your Quotes", quotes_path %><br><br>
+        <div class="links"> 
+            <a class="badge badge-light" <%= link_to "See all your Books", books_path %></a>
+            <a class="badge badge-light" <%= link_to "See all your Quotes", quotes_path %></a>
     <% end %>
-    <%= button_to "Create New Book", new_book_path, method: "get" %><br><br>
-<% else %>
-    <h1>Welcome to Lemondrop</h1><br><br>
-    <h4>Please sign in or sign up above</h4>
+    <a class="badge badge-light" <%= link_to "Create New Book", new_book_path, method: "get" %></a>
+    <br />
+    <br />
+    <% else %>
+        </div>
+        <h5>Please sign in or sign up above</h5>
 <% end %>
 
 
