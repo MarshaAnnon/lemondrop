@@ -26,8 +26,9 @@
 <br>
 <br>
 <div class="links">
-    <a class="badge badge-secondary" <%= link_to "Add Quote", new_book_quote_path(@book), method: "get" %></a>
-    <a class="badge badge-secondary" <%= link_to "Edit Book", edit_book_path(@book), method: "get" %></a>
-    <a class="badge badge-secondary" <%= link_to("Delete Book", @book, method: :delete, data:{confirm: "Are you sure?"}) %></a>
-    
+    <a class="badge badge-light" <%= link_to "Add Quote", new_book_quote_path(@book), method: "get" %></a>
+    <a class="badge badge-light" <%= link_to "Edit Book", edit_book_path(@book), method: "get" %></a>
+    <a class="badge badge-light" <%= link_to("Delete Book", @book, method: :delete, data:{confirm: "Are you sure?"}) %></a>
+    <br />
+    <br />
 </div>
