@@ -1,14 +1,25 @@
-<h3><%= current_user.username.capitalize %>, here are all your books:</h3><br>
+<br />
+<h5><%= current_user.username.capitalize %>, here are all your books:</h5>
+<br />
 
-<%= form_tag books_path, :method => "get" do %>
+<!--<%= form_tag books_path, :method => "get" do %>
     <%= label_tag "Search for a book" %>
     <%= text_field_tag :title, params[:title] %>
     <%= submit_tag "Search" %>
 <% end %>
 
-<ul>
     <% @books.each do |book| %>  
         <li><%= link_to(book.title, book) %></li><br>
-    <% end %>
-</ul>
+    <% end %>-->
 
+<ul>
+
+<% @books.each do |book| %>
+            <div class="card">
+                <div class="card-body">
+                   <a class="card-title"<%= link_to book.title, book_path(book), style: "color: #8F8255; font-weight: bold" %></a>
+                   <p class="card-text"<%= link_to book.description.slice(0..130), book_path(book), style: "color: #8F8255;" %>...</p>
+                </div>
+            </div>
+<% end %>
+</ul>
