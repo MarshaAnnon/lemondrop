@@ -7,6 +7,13 @@
                     <a <%= link_to "Back |", :back, style: "color: #F4EDE2;" %></a>
                     <a <%= link_to "Edit Your Profile |", edit_user_registration_path(current_user), style: "color: #F4EDE2;" %></a>
                     <a <%= link_to "Sign Out", destroy_user_session_path, method: :delete, style: "color: #F4EDE2;" %></a>
+                    <div class="search">
+                        <%= form_tag books_path, :method => "get" do %>
+                            <%= label_tag "Search for a book" %>
+                            <%= text_field_tag :title, params[:title] %>
+                            <%= submit_tag "Search" %>
+                        <% end %>
+                    </div>
                 </ul>
         <% end %>
         <% else %>
