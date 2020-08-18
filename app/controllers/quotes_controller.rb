@@ -7,7 +7,6 @@ class QuotesController < ApplicationController
       @book = Book.find_by_id(params[:book_id])
     end
     @quotes = Quote.all
-    #@quotes = Quote.where("book_id = ?" params[:book_id])
   end
 
   def new
