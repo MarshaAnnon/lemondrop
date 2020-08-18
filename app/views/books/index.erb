@@ -5,8 +5,8 @@
     <% @books.each do |book| %>
         <div class="card">
             <div class="card-body">
-               <a class="card-title"<%= link_to book.title, book_path(book), style"color:   #8F8255; font-weight: bold" %></a>
-               <p class="card-text"<%= link_to book.description.slice(0..130), book_pa(book),style: "color: #8F8255;" %>...</p>
+               <a class="card-title"<%= link_to book.title, book_path(book), style: "color:   #8F8255; font-weight: bold" %></a>
+               <p class="card-text"<%= link_to book.description.slice(0..130), book_path(book), style: "color: #8F8255;" %>...</p>
             </div>
         </div>
     <% end %>
