@@ -19,12 +19,6 @@ class GenresController < ApplicationController
     @genre = Genre.find_by_id(params[:id])
   end
 
-  #def edit
-  #  @book = Book.find_by_id(params[:book_id])
-  #  
-  #  @bookgenre = BookGenre.find_by(book_id: params[:book_id], genre_id: params[:id])
-  #end
-    
   def update
     @genre = Genre.find_by_id(params[:id])
     @genre.update(genre_params)
@@ -35,7 +29,7 @@ class GenresController < ApplicationController
       end
   end
 
-      private
+  private
 
   def genre_params
       params.require(:genre).permit(:name, :genre_id, :book_id)
