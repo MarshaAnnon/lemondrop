@@ -17,12 +17,12 @@ class BooksController < ApplicationController
   end
   
   def create
-      @book = current_user.books.build(book_params)
-      if @book.save
-          redirect_to @book
-      else
-          render :new
-      end
+    @book = current_user.books.build(book_params)
+    if @book.save
+        redirect_to @book
+    else
+        render :new
+    end
   end
 
   def show
@@ -71,7 +71,7 @@ class BooksController < ApplicationController
       :quotes_attributes => [:id, :content, :_destroy], 
       :book_genres_attributes => [:id, :book_id, :genre_id],       
       :user_books_attributes => [:id, :user_id, :book_id, :current_book]
-      )
+    )
   end
 
   def set_book
