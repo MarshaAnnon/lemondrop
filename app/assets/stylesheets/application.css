@@ -25,79 +25,79 @@ h5 {
     height: 350px;
 }
 
- .nav_bar,
- .nav
- ul
- li {
-    display: flex;
-    height: 65px;
-    background-color: #8F8255;
-    margin: 10px;
+.nav_bar,
+.nav
+ul
+li {
+   display: flex;
+   height: 65px;
+   background-color: #8F8255;
+   margin: 10px;
 }
 
 .nav,
- ul,
- li,
- a {
-    display: flex;
-    padding-top: 10px;
-    font-family: nunito, sans-serif;
-    font-size: 1em;
+ul,
+li,
+a {
+   display: flex;
+   padding-top: 10px;
+   font-family: nunito, sans-serif;
+   font-size: 1em;
  }
 
- .nav,
- .search {
-     display: flex;
-     margin-left: 550px;
-     margin-top: 8px;
+.nav,
+.search {
+   display: flex;
+   margin-left: 550px;
+   margin-top: 8px;
  }
 
- #main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin: auto;
-    margin-top: 50px;
-    width: 45%;
+#main-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   margin: auto;
+   margin-top: 50px;
+   width: 45%;
+}
+
+h5 {
+   text-align: center;
+}
+
+.card {
+   display: inline-flex;
+   float: left;
+   height: 400px;
+   margin: 20px;
+   padding: 20px;
+   text-align: left;
+   width: 16rem;
+   background-color: #8F8255;
+   font-family: nunito, sans-serif;
+   font-size: 1em;
+}
+
+.links {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   column-gap: 12rem;
+   margin: auto;
+   margin-top: 100px;
+   width: 45%;
+   clear: both;
  }
 
- h5 {
-     text-align: center;
- }
-
- .card {
-    display: inline-flex;
-    float: left;
-    height: 400px;
-    margin: 20px;
-    padding: 20px;
-    text-align: left;
-    width: 16rem;
-    background-color: #8F8255;
-    font-family: nunito, sans-serif;
-    font-size: 1em;
- }
-
- .links {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    column-gap: 12rem;
-    margin: auto;
-    margin-top: 100px;
-    width: 45%;
-    clear: both;
- }
-
- .form,
- .field,
- .actions {
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-    justify-content: center;
- }
+.form,
+.field,
+.actions {
+   display: flex;
+   flex-direction: column; 
+   align-items: center;
+   justify-content: center;
+}
