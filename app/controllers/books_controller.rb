@@ -5,16 +5,10 @@ class BooksController < ApplicationController
   def index
     @book = Book.all
     @books = Book.book_description
-    binding.pry
     @books = Book.book_title(params[:title]) if params[:title].present?
   end
 
-  #def index
-  #  @products = Product.all
-  #  @products = Product.search(params[:search]) unless params[:search].blank?
-  #  @products = @products.toys unless params[:toys].blank?
-  #end
-  
+
   def new
     @book = current_user.books.build
     @book.quotes.build
