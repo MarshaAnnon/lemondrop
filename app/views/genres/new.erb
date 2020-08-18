@@ -1,11 +1,13 @@
-<% if @user.errors.any? %>
-  <%= @user.errors.full_messages.to_sentence %>
-<% end %>
-
-<h2>Add Genre</h2><br><br>
-<%= form_with model: @book.genres.build, local: true do | f |  %>
-  <%= f.hidden_field :book_id, value: @book.id %>
-      <%= f.label "Sub-Genre" %><br><br>
-      <%= f.text_field :sub_genre %><br><br>
-      <%= f.submit "Add Genre" %>
+<div class="form">
+  <% if @user.errors.any? %>
+    <%= @user.errors.full_messages.to_sentence %>
   <% end %>
+  <br><br>
+  <h5>Add Genre</h5><br><br>
+  <%= form_with model: @book.genres.build, local: true do | f |  %>
+    <%= f.hidden_field :book_id, value: @book.id %>
+        <%= f.label "Sub-Genre" %><br><br>
+        <%= f.text_field :sub_genre, size: "60x2" %><br><br>
+        <%= f.submit "Add Genre" %>
+  <% end %>
+</div>
