@@ -8,7 +8,6 @@ class BooksController < ApplicationController
     @books = Book.book_title(params[:title]) if params[:title].present?
   end
 
-
   def new
     @book = current_user.books.build
     @book.quotes.build
@@ -25,25 +24,6 @@ class BooksController < ApplicationController
           render :new
       end
   end
-
-    #@user_book = current_user.user_books.build
-    #@book = Book.new(book_params)
-    #if @book.save
-    #  
-    #  @user_book.book = @book
-    #  @user_book.current_book = params[:book][:current_book]
-    #  @user_book.save
-    #  @book_genre = @book.book_genres.last
-    #  @book_genre.sub_genre = params[:book][:book_genre][:sub_genre]
-    #  @book_genre.save
-    #  binding.pry
-    #  redirect_to book_path(@book)
-    #    if @book.errors.any?
-    #      render "edit"
-    #    end
-    #else
-    #  render :new
-    #end
 
   def show
     if !@book
